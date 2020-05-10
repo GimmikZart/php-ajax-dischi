@@ -12,6 +12,8 @@
   <body>
     <header>
       <img src="img/spotify-logo.png" alt="">
+      <input type="text" name="" value="" id="ricerca" placeholder="Scrivi la tua ricerca...">
+      <button type="button" name="button" id="bottone">Cerca</button>
 
     </header>
 
