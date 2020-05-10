@@ -93,7 +93,30 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-console.log("ciaoooo");
+$(document).ready(function () {
+  $.ajax({
+    url: "database.php",
+    method: "GET",
+    success: function success(data) {
+      var template = Handlebars.compile($("#entry-template").html());
+
+      for (var i = 0; i < data.length; i++) {
+        var album = data[i];
+        var context = {
+          poster: album.poster,
+          title: album.title,
+          artista: album.author,
+          anno: album.year
+        };
+        var generato = template(context);
+        $(".section").append(generato);
+      }
+    },
+    error: function error(_error) {
+      alert("ERRORE: " + _error);
+    }
+  });
+});
 
 /***/ }),
 
@@ -115,8 +138,8 @@ console.log("ciaoooo");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\ESERCIZI BACKEND\php-ajax-dischi\src\app.js */"./src/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\ESERCIZI BACKEND\php-ajax-dischi\src\app.scss */"./src/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\ESERCIZI BACKEND\php-ajax-dischi\ex_2\src\app.js */"./src/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\ESERCIZI BACKEND\php-ajax-dischi\ex_2\src\app.scss */"./src/app.scss");
 
 
 /***/ })
